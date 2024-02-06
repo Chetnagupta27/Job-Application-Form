@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Job Application Form</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #5b555b;
+    }
+    .container {
+      max-width: 600px;
+      margin: 20px auto;
+      padding: 20px;
+      background-color: #57d0c0;
+      border-radius: 5px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
+    h1, h2 {
+      text-align: center;
+    }
+    form {
+      margin-top: 20px;
+    }
+    input[type="text"], input[type="email"], input[type="tel"], textarea, select {
+      width: 100%;
+      padding: 10px;
+      margin-bottom: 10px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      box-sizing: border-box;
+    }
+    input[type="submit"] {
+      width: 100%;
+      padding: 10px;
+      background-color: #007bff;
+      border: none;
+      color: #fff;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+    input[type="submit"]:hover {
+      background-color: #0056b3;
+    }
+    .submitted-info {
+      margin-top: 20px;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>Job Application Form</h1>
+    <form id="jobApplicationForm">
+      <input type="text" id="fullName" name="fullName" placeholder="Full Name" required>
+      <input type="email" id="email" name="email" placeholder="Email Address" required>
+      <input type="text" id="college" name="college" placeholder="College" required>
+      <input type="text" id="branch" name="branch" placeholder="Branch" required>
+      <input type="text" id="year" name="year" placeholder="Year of Study" required>
+      <input type="tel" id="contactNo" name="contactNo" placeholder="Contact Number" required>
+      <input type="text" id="cgpa" name="cgpa" placeholder="Aggregate CGPA" required>
+      <textarea id="skills" name="skills" placeholder="Skills"></textarea>
+      <div>Upload your resume <br>
+      <input type="file" id="resumeLink" name="resumeLink" placeholder="Link to your resume (if applicable)">
+      </div>
+      <br>
+      <select id="jobPosition" name="jobPosition" required>
+        <option value="">Select Job Position</option>
+        <option value="Software Developer">Software Developer</option>
+        <option value="Marketing Manager">Marketing Manager</option>
+        <option value="Sales Representative">Sales Representative</option>
+        <!-- Add more options as needed -->
+      </select>
+      <select id="jobLocation" name="jobLocation" required>
+        <option value="">Select Job Location</option>
+        <option value="New York">New York</option>
+        <option value="Los Angeles">Los Angeles</option>
+        <option value="Chicago">Chicago</option>
+        <!-- Add more options as needed -->
+      </select>
+      <input type="submit" value="Submit Application">
+    </form>
+    <div class="submitted-info" id="submittedInfo" style="display: none;">
+      <h2>Thank You!</h2>
+      <p><strong>Full Name:</strong> <span id="displayFullName"></span></p>
+      <p><strong>Email:</strong> <span id="displayEmail"></span></p>
+      <p><strong>College:</strong> <span id="displayCollege"></span></p>
+      <p><strong>Branch:</strong> <span id="displayBranch"></span></p>
+      <p><strong>Year of Study:</strong> <span id="displayYear"></span></p>
+      <p><strong>Contact Number:</strong> <span id="displayContactNo"></span></p>
+      <p><strong>CGPA:</strong> <span id="displayCGPA"></span></p>
+      <p><strong>Skills:</strong> <span id="displaySkills"></span></p>
+      <p><strong>Resume Link:</strong> <span id="displayResumeLink"></span></p>
+      <p><strong>Job Position:</strong> <span id="displayJobPosition"></span></p>
+      <p><strong>Job Location:</strong> <span id="displayJobLocation"></span></p>
+    </div>
+  </div>
+
+  <script>
+    document.getElementById('jobApplicationForm').addEventListener('submit', function(event) {
+      event.preventDefault();
+
+      var fullName = document.getElementById('fullName').value;
+      var email = document.getElementById('email').value;
+      var college = document.getElementById('college').value;
+      var branch = document.getElementById('branch').value;
+      var year = document.getElementById('year').value;
+      var contactNo = document.getElementById('contactNo').value;
+      var cgpa = document.getElementById('cgpa').value;
+      var skills = document.getElementById('skills').value;
+      var resumeLink = document.getElementById('resumeLink').value;
+      var jobPosition = document.getElementById('jobPosition').value;
+      var jobLocation = document.getElementById('jobLocation').value;
+
+      document.getElementById('displayFullName').textContent = fullName;
+      document.getElementById('displayEmail').textContent = email;
+      document.getElementById('displayCollege').textContent = college;
+      document.getElementById('displayBranch').textContent = branch;
+      document.getElementById('displayYear').textContent = year;
+      document.getElementById('displayContactNo').textContent = contactNo;
+      document.getElementById('displayCGPA').textContent = cgpa;
+      document.getElementById('displaySkills').textContent = skills;
+      document.getElementById('displayResumeLink').textContent = resumeLink;
+      document.getElementById('displayJobPosition').textContent = jobPosition;
+      document.getElementById('displayJobLocation').textContent = jobLocation;
+
+      document.getElementById('jobApplicationForm').style.display = 'none';
+      document.getElementById('submittedInfo').style.display = 'block';
+    });
+  </script>
+</body>
+</html>
